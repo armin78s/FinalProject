@@ -26,12 +26,10 @@ const Form = () => {
   };
 
   return (
-    <form className="flex flex-wrap justify-center lg:justify-start mt-8">
+    <form className="flex flex-wrap p-4 justify-center lg:justify-start mt-8">
       <div className="flex flex-col justify-center mr-10 relative text-gray-600 focus-within:text-gray-400 w-96">
         <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-          <span
-            className="p-1 focus:outline-none focus:shadow-outline"
-          >
+          <span className="p-1 focus:outline-none focus:shadow-outline">
             <i className="fa fa-search" aria-hidden="true"></i>
           </span>
         </span>

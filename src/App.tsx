@@ -5,7 +5,7 @@ import Products from "./components/Products";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "./store/category-action";
 import { fetchProducts } from "./store/product-action";
-import {loading, products } from "./store";
+import { loading, products } from "./store";
 import Loading from "./components/Loading";
 
 function App() {
@@ -18,20 +18,18 @@ function App() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
-
 
   console.log(product);
 
   return (
     <Fragment>
       <Nav />
-      <div className="p-4">
-        <Form />
-        {isLoading && <Loading />}
+      <Form />
+      <div className="p-2">
+      {isLoading && <Loading />}
         <Products />
       </div>
     </Fragment>
