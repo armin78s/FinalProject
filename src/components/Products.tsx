@@ -6,7 +6,7 @@ const Products = () => {
   const product = useSelector(productsPerCat);
 
   return (
-    <div className="flex flex-wrap justify-around mt-6">
+    <div className="flex flex-wrap justify-around mt-6 p-2">
       {product.map((p) => (
         <Product
           key={p.id}

@@ -1,15 +1,13 @@
 import React, { Fragment, useEffect } from "react";
-import Nav from "./components/Nav";
-import Form from "./components/Form";
-import Products from "./components/Products";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "./store/category-action";
 import { fetchProducts } from "./store/product-action";
-import { loading, products } from "./store";
+import { loading } from "./store";
 import Loading from "./components/Loading";
+import { fetchUser } from "./store/user-action";
+import MainPage from "./components/MainPage";
 
 function App() {
-  const product = useSelector(products);
   const isLoading = useSelector(loading);
 
   const dispatch = useDispatch();
@@ -20,18 +18,15 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCategories());
+    dispatch(fetchUser());
   }, [dispatch]);
 
-  console.log(product);
+
 
   return (
     <Fragment>
-      <Nav />
-      <Form />
-      <div className="p-2">
       {isLoading && <Loading />}
-        <Products />
-      </div>
+      {!isLoading && <MainPage />}
     </Fragment>
   );
 }
