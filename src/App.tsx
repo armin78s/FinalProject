@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Products from "./components/Products";

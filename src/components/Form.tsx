@@ -12,6 +12,7 @@ const Form = () => {
   const change = (event: ChangeEvent<{ value: string }>) => {
     if (event.target.value === "all") {
       dispatch(productActions.allProduct());
+      dispatch(categoryActions.categoryChange(event.target.value));
     } else {
       dispatch(productActions.catchange(event.target.value));
       dispatch(categoryActions.categoryChange(event.target.value));
@@ -20,7 +21,11 @@ const Form = () => {
 
   const charChange = (event: ChangeEvent<{ value: string }>) => {
     if (event.target.value.trim() === "") {
-      dispatch(productActions.catchange(currentCat));
+      if (currentCat === "all") {
+        dispatch(productActions.allProduct());
+      } else {
+        dispatch(productActions.catchange(currentCat));
+      }
     }
     dispatch(productActions.charChange(event.target.value));
   };

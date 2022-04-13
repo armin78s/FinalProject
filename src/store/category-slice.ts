@@ -2,7 +2,7 @@ import { createSlice,PayloadAction  } from "@reduxjs/toolkit";
 
 const initialState: {categories :string [],currentCat:string} = {
     categories : [],
-    currentCat : ""
+    currentCat : "all"
   };
 const categorySlice = createSlice({
     name: "category",
