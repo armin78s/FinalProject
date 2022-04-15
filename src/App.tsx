@@ -8,12 +8,11 @@ import MainPage from "./components/MainPage";
 import { Switch, Route } from "react-router-dom";
 import Carts from "./components/Cart";
 import Nav from "./components/Nav";
-import { Console } from "console";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const isLoading = useSelector(loading);
-  
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,6 +26,7 @@ function App() {
 
   return (
     <Fragment>
+      <ToastContainer position="top-right"/>
       {!isLoading && <Nav />}
 
       <Switch>

@@ -6,11 +6,12 @@ import { productActions } from "./products-slice";
 
 export const fetchProducts = () => {
   return async (dispatch:Dispatch ) => {
+    dispatch(loadingActions.toggle());
     const { fetchData } = useHttp<Product[]>(
       "https://fakestoreapi.com/products"
     );
     const products = await fetchData();
-
+    dispatch(loadingActions.toggle());
 
     dispatch(
         productActions.init(products)

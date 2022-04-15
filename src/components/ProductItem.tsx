@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { toast} from "react-toastify";
 import { cartActions } from "../store/cart-slice";
 import Product from "../types/product";
 
@@ -16,6 +17,7 @@ const ProductItem: React.FC<{
       image: props.product.image,
     };
     dispatch(cartActions.addToCart(item));
+    toast.success(`${props.product.title} add to cart`);
   };
   return (
     <div className="flex flex-col mt-5 w-96 lg:w-1/3 p-2">
