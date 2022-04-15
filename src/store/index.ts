@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import cartSlice from "./cart-slice";
 import categorySlice from "./category-slice";
 import loadingSlice from "./loading-slice";
 import productSlice from "./products-slice";
@@ -9,7 +10,8 @@ const store = configureStore({
     category: categorySlice.reducer,
     product: productSlice.reducer,
     loading: loadingSlice.reducer,
-    user:userSlice.reducer
+    user:userSlice.reducer,
+    cart:cartSlice.reducer
   },
 });
 
@@ -20,5 +22,6 @@ export const currentCategory = (state: RootState) => state.category.currentCat;
 export const productsPerCat = (state: RootState) => state.product.productPerCat;
 export const loading = (state: RootState) => state.loading.isLoading;
 export const userName = (state: RootState) => state.user.name;
+export const carts = (state: RootState) => state.cart.carts;
 
 export default store;

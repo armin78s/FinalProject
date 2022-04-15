@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
-import { categories, productsPerCat } from "../store";
+import { carts } from "../store";
+import CartItem from "./CartItem";
 
 const Carts = () => {
-  const category = useSelector(categories);
+  const cart = useSelector(carts);
   return (
     <table className="w-full text-center border border-solid border-gray-500 ">
       <thead>
@@ -17,25 +18,8 @@ const Carts = () => {
         </tr>
       </thead>
       <tbody>
-        {category.map(() => (
-          <tr className="odd:bg-gray-200  border border-solid border-gray-500 h-14">
-            <td>1</td>
-            <td>Product 1</td>
-            <td>this is sample text for description</td>
-            <td>
-              <button className="bg-red-600 rounded-full px-2 text-white">
-                -
-              </button>{" "}
-              1{" "}
-
-              <button className="bg-blue-600  rounded-full px-2 text-white">+</button>
-            </td>
-            <td>0.00 $</td>
-            <td>0.00 $</td>
-            <td className="text-left">
-              <button className="bg-red-500 text-white px-2 rounded-full py-1 text-lg"><i className="fa fa-trash" aria-hidden="true"></i></button>
-            </td>
-          </tr>
+        {cart.map((c) => (
+         <CartItem cartItem={c}/>
         ))}
         <tr className="h-14 odd:bg-gray-200 ">
             <td>Total</td>
