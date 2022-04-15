@@ -4,11 +4,11 @@ import { categories, currentCategory } from "../store";
 import { categoryActions } from "../store/category-slice";
 import { productActions } from "../store/products-slice";
 
-const Form = () => {
+const Form  = () => {
   const category = useSelector(categories);
   const currentCat = useSelector(currentCategory);
   const dispatch = useDispatch();
-
+  console.log("form");
   const change = (event: ChangeEvent<{ value: string }>) => {
     if (event.target.value === "all") {
       dispatch(productActions.allProduct());
@@ -47,7 +47,7 @@ const Form = () => {
 
       <select
         onChange={change}
-        className="flex flrx-col  border-b-2 border-gray-400 w-96 focus:outline-none mt-8 md:mt-0"
+        className="flex flex-col  border-b-2 border-gray-400 w-96 focus:outline-none mt-8 md:mt-0"
       >
         <option value="all">All Products</option>
         {category.map((category) => (
@@ -60,4 +60,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default React.memo(Form);

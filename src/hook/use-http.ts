@@ -7,7 +7,9 @@ function useHttp<T>(url: string) {
     return data;
   };
 
-  return fetchData
+  return {
+    fetchData
+  }
   
 }
 

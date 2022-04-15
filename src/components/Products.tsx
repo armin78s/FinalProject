@@ -1,21 +1,17 @@
 import {  useSelector } from "react-redux";
 import {  productsPerCat } from "../store";
-import Product from "./Product";
+import ProductItem from "./ProductItem";
 
 const Products = () => {
   const product = useSelector(productsPerCat);
+  console.log("products ")
 
   return (
     <div className="flex flex-wrap justify-around mt-6 p-2">
       {product.map((p) => (
-        <Product
+        <ProductItem
           key={p.id}
-          id={p.id}
-          category ={p.category}
-          title={p.title}
-          image={p.image}
-          desc={p.description}
-          price={p.price}
+         product = {p}
         />
       ))}
     </div>

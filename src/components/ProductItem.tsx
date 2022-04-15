@@ -1,39 +1,35 @@
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cart-slice";
+import Product from "../types/product";
 
-const Product: React.FC<{
-  id: number;
-  category: string;
-  title: string;
-  image: string;
-  price: number;
-  desc: string;
+const ProductItem: React.FC<{
+  product: Product;
 }> = (props) => {
   const dispatch = useDispatch();
   const addItemToCart = () => {
     const item = {
-      id: props.id,
-      title: props.title,
-      price: props.price,
-      category: props.category,
-      description: props.desc,
-      image: props.image,
+      id: props.product.id,
+      title: props.product.title,
+      price: props.product.price,
+      category: props.product.category,
+      description: props.product.description,
+      image: props.product.image,
     };
     dispatch(cartActions.addToCart(item));
-    
   };
   return (
     <div className="flex flex-col mt-5 w-96 lg:w-1/3 p-2">
       <div className="flex-1 overflow-hidden h-max border border-solid border-gray-300 shadow-lg rounded-xl bg-gray-50">
-        <img className="h-80 w-full" src={props.image} />
+        <img className="h-80 w-full" src={props.product.image} />
         <div className=" p-6">
-          <h2 className="mt-2 text-2xl font-semibold">{props.title}</h2>
+          <h2 className="mt-2 text-2xl font-semibold">{props.product.title}</h2>
           <div>
-            <h4 className="text-lg mt-4">{props.desc}</h4>
+            <h4 className="text-lg mt-4">{props.product.description}</h4>
           </div>
           <div className="mt-4">
             <h4 className="text-lg">
-              {props.price} <i className="fa fa-usd" aria-hidden="true"></i>
+              {props.product.price}{" "}
+              <i className="fa fa-usd" aria-hidden="true"></i>
             </h4>
           </div>
           <div className="text-center mt-6 static bottom-0">
@@ -50,4 +46,4 @@ const Product: React.FC<{
   );
 };
 
-export default Product;
+export default ProductItem;
