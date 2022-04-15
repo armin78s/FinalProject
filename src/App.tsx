@@ -6,6 +6,9 @@ import { loading } from "./store";
 import Loading from "./components/Loading";
 import { fetchUser } from "./store/user-action";
 import MainPage from "./components/MainPage";
+import { Switch ,Route} from "react-router-dom";
+import Carts from "./components/Cart";
+import Nav from "./components/Nav";
 
 function App() {
   const isLoading = useSelector(loading);
@@ -25,8 +28,15 @@ function App() {
 
   return (
     <Fragment>
-      {isLoading && <Loading />}
-      {!isLoading && <MainPage />}
+      <Nav />
+      <Switch>
+        <Route path="/cart">
+          <Carts />
+        </Route>
+        <Route path="/" >
+          <MainPage />
+        </Route>
+      </Switch>
     </Fragment>
   );
 }

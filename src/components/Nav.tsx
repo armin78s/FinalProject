@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { userName } from "../store";
 
 const Nav = () => {
@@ -10,13 +11,13 @@ const Nav = () => {
         <h3 className="inline-block ml-2">Hi,{name}</h3>
       </div>
       <div>
-        <h1 className="text-base sm:text-2xl sm:font-semibold">Armin's Store</h1>
+        <NavLink to="/" className="text-base sm:text-2xl sm:font-semibold">Armin's Store</NavLink>
       </div>
       <div className="mr-4">
         <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-        <a className="ml-2 inline-block text-base sm:text-xl">
+        <NavLink className="ml-2 inline-block text-base sm:text-xl" to="/cart">
           Cart <span className="bg-red-600 rounded-2xl px-1 sm:px-3">0</span>
-        </a>
+        </NavLink>
       </div>
     </nav>
   );
