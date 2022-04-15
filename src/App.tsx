@@ -6,7 +6,7 @@ import { loading } from "./store";
 import Loading from "./components/Loading";
 import { fetchUser } from "./store/user-action";
 import MainPage from "./components/MainPage";
-import { Switch ,Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Carts from "./components/Cart";
 import Nav from "./components/Nav";
 
@@ -24,16 +24,15 @@ function App() {
     dispatch(fetchUser());
   }, [dispatch]);
 
-
-
   return (
     <Fragment>
-      <Nav />
+      {!isLoading && <Nav />}
+
       <Switch>
         <Route path="/cart">
           <Carts />
         </Route>
-        <Route path="/" >
+        <Route path="/">
           <MainPage />
         </Route>
       </Switch>

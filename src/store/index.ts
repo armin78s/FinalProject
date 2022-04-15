@@ -23,5 +23,6 @@ export const productsPerCat = (state: RootState) => state.product.productPerCat;
 export const loading = (state: RootState) => state.loading.isLoading;
 export const userName = (state: RootState) => state.user.name;
 export const carts = (state: RootState) => state.cart.carts;
+export const totalPrice = (state: RootState) => state.cart.totalPrice;
 
 export default store;

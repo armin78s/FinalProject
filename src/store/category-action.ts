@@ -15,6 +15,8 @@ export const fetchCategories = () => {
     const categories = await fetchData();
 
 
+
+
     dispatch(
         categoryActions.init(categories)
     )
