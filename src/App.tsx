@@ -16,11 +16,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(fetchCategories());
+    dispatch(fetchProducts());
     dispatch(fetchUser());
   }, [dispatch]);
 

@@ -46,6 +46,9 @@ const cartSlice = createSlice({
       if (item.quantity !== 1) {
         item.quantity = item.quantity - 1;
         state.totalPrice = state.totalPrice - item.price;
+      }else if(item.quantity === 1){
+        state.carts = state.carts.filter((c) => c.id !== action.payload);
+        state.totalPrice = state.totalPrice - item.price;
       }
     },
     deleteItem(state, action: PayloadAction<number>) {

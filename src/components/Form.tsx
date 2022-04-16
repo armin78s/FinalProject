@@ -8,7 +8,7 @@ const Form  = () => {
   const category = useSelector(categories);
   const currentCat = useSelector(currentCategory);
   const dispatch = useDispatch();
-  console.log("form");
+  
   const change = (event: ChangeEvent<{ value: string }>) => {
     if (event.target.value === "all") {
       dispatch(productActions.allProduct());
@@ -60,4 +60,4 @@ const Form  = () => {
   );
 };
 
-export default React.memo(Form);
+export default Form;

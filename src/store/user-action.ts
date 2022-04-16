@@ -14,8 +14,6 @@ export const fetchUser = () => {
     };
     const name = await fetchData();
 
-    console.log(name);
-
     dispatch(
         userActions.init(name)
     )
