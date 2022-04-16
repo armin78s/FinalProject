@@ -48,6 +48,7 @@ const Form  = () => {
       <select
         onChange={change}
         className="flex flex-col  border-b-2 border-gray-400 w-96 focus:outline-none mt-8 md:mt-0"
+        value={currentCat}
       >
         <option value="all">All Products</option>
         {category.map((category) => (
