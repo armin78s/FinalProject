@@ -8,7 +8,6 @@ const Form = () => {
   const category = useSelector(categories);
   const currentCat = useSelector(currentCategory);
   const dispatch = useDispatch();
-  console.log("form");
   const change = useCallback((event: ChangeEvent<{ value: string }>) => {
     dispatch(productActions.catchange(event.target.value));
     dispatch(categoryActions.categoryChange(event.target.value));
