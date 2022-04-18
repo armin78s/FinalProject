@@ -15,12 +15,15 @@ const productSlice = createSlice({
       state.productPerCat = action.payload;
     },
     catchange: (state, action: PayloadAction<string>) => {
-      state.productPerCat = state.products.filter(
-        (p) => p.category === action.payload
-      );
-    },
-    allProduct : (state) => {
-      state.productPerCat = state.products;
+      if(action.payload === "all"){
+        state.productPerCat = state.products;
+      }
+      else{
+        state.productPerCat = state.products.filter(
+          (p) => p.category === action.payload
+        );
+      }
+     
     },
     charChange: (state, action: PayloadAction<string>) => {
       state.productPerCat = state.productPerCat.filter((p) =>

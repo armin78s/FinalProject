@@ -16,6 +16,6 @@ export const fetchUser = () => {
 
     dispatch(
         userActions.init(name)
-    )
+    );
   };
 };

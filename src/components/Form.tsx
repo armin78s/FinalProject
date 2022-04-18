@@ -1,36 +1,30 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useCallback} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { categories, currentCategory } from "../store";
 import { categoryActions } from "../store/category-slice";
 import { productActions } from "../store/products-slice";
 
-const Form  = () => {
+const Form = () => {
   const category = useSelector(categories);
   const currentCat = useSelector(currentCategory);
   const dispatch = useDispatch();
-  
-  const change = (event: ChangeEvent<{ value: string }>) => {
-    if (event.target.value === "all") {
-      dispatch(productActions.allProduct());
-      dispatch(categoryActions.categoryChange(event.target.value));
-    } else {
-      dispatch(productActions.catchange(event.target.value));
-      dispatch(categoryActions.categoryChange(event.target.value));
-    }
-  };
+  console.log("form");
+  const change = useCallback((event: ChangeEvent<{ value: string }>) => {
+    dispatch(productActions.catchange(event.target.value));
+    dispatch(categoryActions.categoryChange(event.target.value));
+  },[dispatch]);
 
-  const charChange = (event: ChangeEvent<{ value: string }>) => {
+  const charChange = useCallback ((event: ChangeEvent<{ value: string }>) => {
     if (event.target.value.trim() === "") {
-      if (currentCat === "all") {
-        dispatch(productActions.allProduct());
-      } else {
-        dispatch(productActions.catchange(currentCat));
-      }
+      dispatch(productActions.catchange(currentCat));
+    } else {
+      dispatch(productActions.catchange(currentCat));
+      dispatch(productActions.charChange(event.target.value));
     }
-    dispatch(productActions.charChange(event.target.value));
-  };
+  },[dispatch,currentCat]);
 
   return (
+    
     <form className="flex flex-wrap p-4 justify-center lg:justify-start mt-8">
       <div className="flex flex-col justify-center mr-10 relative text-gray-600 focus-within:text-gray-400 w-96">
         <span className="absolute inset-y-0 left-0 flex items-center pl-2">

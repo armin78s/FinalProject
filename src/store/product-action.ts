@@ -15,6 +15,6 @@ export const fetchProducts = () => {
 
     dispatch(
         productActions.init(products)
-    )
+    );
   };
 };

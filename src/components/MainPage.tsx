@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useMemo } from "react";
 import Form from "./Form";
 import Products from "./Products";
 import Loading from "./Loading";
@@ -11,8 +11,8 @@ const MainPage = () => {
     <Fragment>
       {isLoading && <Loading />}
       {!isLoading && (
-        <div>
-          <Form />
+         <div>
+           <Form />
           <Products />
         </div>
       )}

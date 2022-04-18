@@ -6,13 +6,13 @@ const CartItem: React.FC<{cartItem:Cart , num :number}>= (props) =>{
   const dispatch = useDispatch();
   const deleteCartItem = () =>{
       dispatch(cartActions.deleteItem(props.cartItem.id));
-  }
+  };
   const increaseItem = () =>{
     dispatch(cartActions.increaseQuantity(props.cartItem.id));
-  }
+  };
   const decreaseItem = () =>{
     dispatch(cartActions.decreaseQuantity(props.cartItem.id));
-  }
+  };
     return(
         <tr className="odd:bg-gray-200  border border-solid border-gray-500 h-14">
             <td>{props.num}</td>
@@ -32,7 +32,7 @@ const CartItem: React.FC<{cartItem:Cart , num :number}>= (props) =>{
               <button onClick={deleteCartItem} className="bg-red-500 text-white px-2 rounded-full py-1 text-lg"><i className="fa fa-trash" aria-hidden="true"></i></button>
             </td>
           </tr>
-    )
-}
+    );
+};
 
 export default CartItem;

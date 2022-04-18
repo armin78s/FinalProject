@@ -22,7 +22,7 @@ const ProductItem: React.FC<{
   return (
     <div className="flex flex-col mt-5 w-96 lg:w-1/3 p-2">
       <div className="flex-1 overflow-hidden h-max border border-solid border-gray-300 shadow-lg rounded-xl bg-gray-50">
-        <img className="h-80 w-full" src={props.product.image} />
+        <img className="h-80 w-full" src={props.product.image} alt="productImage"/>
         <div className=" p-6">
           <h2 className="mt-2 text-2xl font-semibold">{props.product.title}</h2>
           <div>

@@ -34,7 +34,7 @@ const CartList = () =>{
           </tr>
         </tbody>
       </table>
-    )
-}
+    );
+};
 
 export default CartList;

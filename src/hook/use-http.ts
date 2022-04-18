@@ -9,7 +9,7 @@ function useHttp<T>(url: string) {
 
   return {
     fetchData
-  }
+  };
   
 }
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { carts, userName } from "../store";
@@ -5,6 +6,7 @@ import { carts, userName } from "../store";
 const Nav = () => {
   const name = useSelector(userName);
   const cart = useSelector(carts);
+  console.log("nav");
   let badgeStyle = "bg-red-600 rounded-2xl px-1 sm:px-3";
   if(cart.length > 0){
     badgeStyle = "bg-green-500 rounded-2xl px-1 sm:px-3";

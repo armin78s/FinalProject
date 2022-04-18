@@ -7,7 +7,7 @@ const loadingSlice = createSlice({
     name: "loading",
     initialState,
     reducers :{
-        toggle : (state) => {
+        toggle :(state) => {
             state.isLoading = !state.isLoading;
         }
     }

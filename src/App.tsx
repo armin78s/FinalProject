@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "./store/category-action";
 import { fetchProducts } from "./store/product-action";
